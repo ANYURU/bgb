@@ -1,17 +1,7 @@
 import React from 'react'
 import { Formik, Form, useField } from 'formik'
 import { MyTextInput } from '../components/Form/MyTextInput'
-
-
-
-// First Name*
-// Surname*
-// Phone Contact*
-// Email
-// Gender*
-// Age*
-// Company name
-// Diocese of Origin
+import { MySelect } from '../components/Form/MySelect'
 
 function Application() {
     const initialvalues = {firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:''}
@@ -91,14 +81,22 @@ function Application() {
                     useField={useField}
                     className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8`}
                     />
-                <MyTextInput 
+                <MySelect 
                     label="Diocese"
                     name="diocese"
                     type="text"
-                    placeholder="Namirembe"
                     useField={useField}
-                    className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8`}
-                    />
+                    className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8 h-12`}
+                    >
+                      <option value="">Select Diocese</option>
+                      <option value="designer">Kampala</option>
+                      <option value="development">Namirembe</option>
+                      <option value="product">Ankole</option>
+                      <option value="other">Rwenzori</option>
+                      <option value="other">Soroti</option>
+                      <option value="other">Busoga</option>
+                      <option value="other">Lango</option>
+                </MySelect>
               </div>
             </div>
             <div className='flex my-4 mobile:justify-center tablet:justify-center desktop:justify-start sm:justify-center desktop:ml-24 '>

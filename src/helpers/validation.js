@@ -6,3 +6,7 @@ export const loginFormValidationSchema = Yup.object({
     phoneNo: Yup.string().matches(phoneRegExp, 'Invalid phone number').min(10, 'Phone number must have 10 digits').required("Phone Number is required"),
     password: Yup.string().trim().min(8, 'Password must be atleast 8 characters').required("Password is required"),
  })
+
+export const ApplicationFormValidationSchema = Yup.object({
+    
+})
