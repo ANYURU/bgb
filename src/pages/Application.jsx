@@ -2,6 +2,8 @@ import React from 'react'
 import { Formik, Form, useField } from 'formik'
 import { MyTextInput } from '../components/Form/MyTextInput'
 import { MySelect } from '../components/Form/MySelect'
+import { formData } from '../helpers/applicationForm'
+import { ApplicationFormValidationSchema as validationSchema } from '../helpers/validation'
 
 function Application() {
     const initialvalues = {firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:''}
@@ -14,7 +16,7 @@ function Application() {
       <h2 className='mx-7'>Application form</h2>
       <Formik
         initialValues={initialvalues}
-        // validationSchema=
+        validationSchema={validationSchema}
         onSubmit={(values) => {
             console.log(values)
         }}
@@ -89,13 +91,9 @@ function Application() {
                     className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8 h-12`}
                     >
                       <option value="">Select Diocese</option>
-                      <option value="designer">Kampala</option>
-                      <option value="development">Namirembe</option>
-                      <option value="product">Ankole</option>
-                      <option value="other">Rwenzori</option>
-                      <option value="other">Soroti</option>
-                      <option value="other">Busoga</option>
-                      <option value="other">Lango</option>
+                      {formData?.dioceses.map((diocese, index) => (
+                        <option key={index} value={diocese}>{diocese}</option>
+                      ))}
                 </MySelect>
               </div>
             </div>
