@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import SignUp from "../pages/SignUp";
+import ApplicationAdmin from "../pages/ApplicationAdmin"
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={<PrivateRoute />} >
-            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path=":applicationId" element={<ApplicationAdmin />}/>
+            </Route>
             <Route path="/signup" element={<SignUp />} />
           </Route>
           <Route path="/" element={<Home />} />

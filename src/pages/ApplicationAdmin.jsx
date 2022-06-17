@@ -1,10 +1,11 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { supabase } from '../helpers/supabase/supabase'
 
 
 function ApplicationAdmin() {
-  const { id } = useParams()
-  const [application, setApplication] = useState()
+  const { applicationId } = useParams()
+  const [application, setApplication] = useState({})
 
   useEffect(() => {
     getApplications()
@@ -20,7 +21,8 @@ function ApplicationAdmin() {
     const {data, error} = await supabase
       .from('applications')
       .select()
-      s
+      .eq("id", applicationId)
+      .single()
 
     if ( error ) throw error
     console.log(data)

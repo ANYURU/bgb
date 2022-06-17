@@ -47,7 +47,7 @@ function Dashboard() {
               applications.map((application, index) => {
                 const {id, application_meta: { firstname, surname, age, gender, email} }= application
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{id}</td>
                     <td>{firstname}</td>
                     <td>{surname}</td>

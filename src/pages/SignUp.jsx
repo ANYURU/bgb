@@ -27,8 +27,8 @@ function SignUp() {
               <img src={logo} alt='SACCO logo' width={80} />
               <h1 className='block text-center font-bold text-2xl uppercase dark:text-white'>SignUp</h1>
               <MyTextInput 
-                label="Phone number"
-                name="phoneNo"
+                label="Email Address"
+                name="email"
                 type="text"
                 placeholder="Enter your phone number."
                 useField={useField}
@@ -59,10 +59,10 @@ function SignUp() {
               >
                 submit
               </button>
-              <div className='flex justify-between w-full mt-3 text-sm'>
+              {/* <div className='flex justify-between w-full mt-3 text-sm'>
                 <Link to="">Already have an account? <span className="text-primary font-semibold">SignUp.</span></Link>
-                {/* <Link to="" className="text-primary font-semibold">Forgot Password?</Link> */}
-              </div>
+                <Link to="" className="text-primary font-semibold">Forgot Password?</Link>
+              </div> */}
             </Form>  
           </Formik>
       </div>
