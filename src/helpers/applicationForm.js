@@ -35,5 +35,11 @@ export const formData = {
         "South Ankole",
         "West Buganda",
         "West Lango Diocese"
+    ],
+    paymentMethods:[
+        "Mobile Money",
+        "Airtel Money",
+        "Cash",
+        "Master Card"
     ]
 }
