@@ -9,7 +9,7 @@ function ApplicationAdmin() {
 
   useEffect(() => {
     getApplications()
-    .then(data => setApplication(data))
+    .then(data => setApplication(data.application_meta))
     .catch(error => console.log(error))
   
   
@@ -28,20 +28,43 @@ function ApplicationAdmin() {
     console.log(data)
     return data
   }
+
+  
   
   return (
     <div>
       <div>
-        <h2>First Name</h2>
+        <span>Application Id: </span>
+        <span>{applicationId}</span>
+      </div>
+      <div>
+        <span>Surname:</span>
+        <span>{application?.surname}</span>
+      </div>
+      <div>
+        <span>First name:</span>
+        <span>{application?.firstname}</span>
+      </div>
+      <div>
+        <span></span>
         <span></span>
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <span></span>
+        <span></span>         
+      </div>
+      <div>
+        <span></span>
+        <span></span>
+      </div>
       <div>
         <button
           type

@@ -14,9 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route element={<PrivateRoute />} >
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path=":applicationId" element={<ApplicationAdmin />}/>
-            </Route>
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/dashboard/:applicationId" element={<ApplicationAdmin />}/>
             <Route path="/signup" element={<SignUp />} />
           </Route>
           <Route path="/" element={<Home />} />

@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../helpers/supabase/supabase'
-
-
-
+import { Link, useNavigate } from 'react-router-dom'
 
 function Dashboard() {
   const [ applications, setApplications ] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     
@@ -13,8 +12,7 @@ function Dashboard() {
     .then(data => setApplications(data))
     .catch(error => console.log(error))
   
-    return () => {
-    }
+    return () => {}
   }, [])
 
   const getApplications = async () => {
@@ -45,16 +43,20 @@ function Dashboard() {
           {
             applications?.length > 0 && (
               applications.map((application, index) => {
-                const {id, application_meta: { firstname, surname, age, gender, email} }= application
+                const {id: applicationId, application_meta: { firstname, surname, age, gender, email} }= application
                 return (
-                  <tr key={index}>
-                    <td>{id}</td>
-                    <td>{firstname}</td>
-                    <td>{surname}</td>
-                    <td>{age}</td>
-                    <td>{gender}</td>
-                    <td>{email}</td>
-                  </tr>
+                    <tr
+                      key={index}
+                      onClick={() => navigate(`/dashboard/${applicationId}`)}
+                    >
+                      <td>{applicationId}</td>
+                      <td>{firstname}</td>
+                      <td>{surname}</td>
+                      <td>{age}</td>
+                      <td>{gender}</td>
+                      <td>{email}</td>
+                    </tr>
+  
                 )
 
               })
