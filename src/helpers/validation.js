@@ -4,7 +4,7 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 
 export const loginFormValidationSchema = Yup.object({
-    email: Yup.string().email("Must be a valid email.").max(255),
+    email: Yup.string().trim().required("Email is required").email("Must be a valid email.").max(255),
     password: Yup.string().trim().min(8, 'Password must be atleast 8 characters').required("Password is required"),
  })
 
@@ -16,6 +16,10 @@ export const ApplicationFormValidationSchema = Yup.object({
     age: Yup.string().required("Required!")
 })
 
-export const SignUpFormValidationSchema = Yup.object({
+export const signUpFormValidationSchema = Yup.object({
+    email: Yup.string().trim().required("Email is required").email("Must be a valid email.").max(255),
+    password: Yup.string().trim().min(8, 'Password must be atleast 8 characters').required("Password is required"),
+    // Matching passwords schema
+    confirmPassword: Yup.string().trim().required("Confirm Password is required").oneOf([Yup.ref('password')], 'Password must be the same!').required('Required!')
     
 })

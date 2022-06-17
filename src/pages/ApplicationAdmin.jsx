@@ -67,13 +67,13 @@ function ApplicationAdmin() {
       </div>
       <div>
         <button
-          type
+          type="button"
         
         >
           Approve
         </button>
         <button
-          Reject
+          type="button"
 
         >
           Reject

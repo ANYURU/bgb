@@ -1,12 +1,11 @@
 import React from 'react'
 import { Formik, Form, useField } from 'formik'
-import { loginFormValidationSchema } from '../helpers/validation'
+import { signUpFormValidationSchema } from '../helpers/validation'
 import logo from '../assets/media/images/bbgb.png'
 import { MyTextInput } from '../components/Form/MyTextInput'
-import { Link } from 'react-router-dom'
 import { useAuth } from '../auth/AuthContext'
-
-
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
   const { signUp } = useAuth()
@@ -15,12 +14,21 @@ function SignUp() {
     <div className="">
       
       <div className={`inline-flex justify-center items-center w-screen dark:bg-dark-bg  h-screen font-montserrat`}>
+        <ToastContainer /> 
           <Formik 
-            initialValues={{ phoneNo: '', password: '',password_confirm: ''}} 
-            validationSchema={loginFormValidationSchema}
-            onSubmit={ async (values) => {
-              
-              console.log(values)
+            initialValues={{ email: '', password: '',confirmPassword: ''}} 
+            validationSchema={signUpFormValidationSchema}
+            onSubmit={ async (values, {resetForm}) => {
+              try {
+                const { confirmPassword, ...credentials } = values
+                const { data, error } = await signUp(credentials)
+                if ( error ) throw error
+                console.log(data)
+                toast.success(`user has successfully been signup`, { position: "top-center"})
+
+              } catch (error) {
+                console.log(error)
+              }
             }}
           >
             <Form className='w-11/12 p-10 sm:w-8/12 md:w-6/12 lg:w-4/12 bg-white dark:bg-dark-bg-700 dark:text-secondary-text shadow-myShadow flex justify-center items-center flex-col rounded-lg'>
@@ -30,14 +38,14 @@ function SignUp() {
                 label="Email Address"
                 name="email"
                 type="text"
-                placeholder="Enter your phone number."
+                placeholder="Enter your email Address."
                 useField={useField}
                 className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-full pl-8`}
                 container='w-full'
               />
               <MyTextInput  
-                label="Confirm password"
-                name="password_confirm"
+                label="Enter password"
+                name="password"
                 type="password"
                 placeholder="password"
                 useField={useField}
@@ -46,7 +54,7 @@ function SignUp() {
               />
                <MyTextInput  
                 label="Password Confirm"
-                name="password_confirm"
+                name="confirmPassword"
                 type="password"
                 placeholder="password"
                 useField={useField}
