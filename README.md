@@ -1,2 +1,1 @@
-# bgb
-This is to help users register for the BGBU conference 2022.
+This is a simple system to facilitate the application process for the BGBU conference 2022.
