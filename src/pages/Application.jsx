@@ -20,7 +20,7 @@ function Application() {
       <p className='pb-7 mx-7'>
         Enter your details here to apply for participation in the BGBU Connect Conference Uganda 2022
       </p>
-      <h2 className='mx-7'>Application form</h2>
+      <h2 className='mx-7'>Registration form</h2>
       <Formik
         initialValues={initialvalues}
         validationSchema={validationSchema}
