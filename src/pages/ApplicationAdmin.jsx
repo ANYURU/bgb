@@ -32,52 +32,56 @@ function ApplicationAdmin() {
   
   
   return (
-    <div>
-      <div>
-        <span>Application Id: </span>
-        <span>{applicationId}</span>
-      </div>
-      <div>
-        <span>Surname:</span>
-        <span>{application?.surname}</span>
-      </div>
-      <div>
-        <span>First name:</span>
-        <span>{application?.firstname}</span>
-      </div>
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-      <div>
-        <span></span>
-        <span></span>         
-      </div>
-      <div>
-        <span></span>
-        <span></span>
-      </div>
-      <div>
-        <button
-          type="button"
+    <div className='px-10'>
+      <div className="font-extrabold opacity-1">{`${application.firstname}'s application Details.`}</div>
+      <div  className='h-full w-full flex flex-col justify-center'>
         
-        >
-          Approve
-        </button>
-        <button
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">First name:</p>
+            <p className="font-bold col-span-3">{application.firstname}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Last name:</p>
+            <p className="font-bold col-span-3">{application.surname}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Age:</p>
+            <p className="font-bold col-span-3">{application.age}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Gender:</p>
+            <p className="font-bold col-span-3">{application.gender}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Company:</p>
+            <p className="font-bold col-span-3">{application.company}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Diocese:</p>
+            <p className="font-bold col-span-3">{application.diocese}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Payment method:</p>
+            <p className="font-bold col-span-3">{application.payment_method}</p>
+          </div>
+        </div>
+      <div>
+      <div className="flex gap-3">
+
+        <button 
+          className="bg-green-400 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded"
           type="button"
 
         >
-          Reject
+          Approve
         </button>
+          <button
+            className="bg-red-400 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded"
+            type="button"
+          >
+            Reject
+          </button>
+        </div>
       </div>
     </div>
   )
