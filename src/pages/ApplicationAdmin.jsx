@@ -67,9 +67,14 @@ function ApplicationAdmin() {
             <p className="font-bold col-span-3">{application.payment_method}</p>
           </div>
           <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
-            <p className="col-span-2">Payment method:</p>
+            <p className="col-span-2">Issues:</p>
             <p className="font-bold col-span-3">{application.issues}</p>
           </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Membership type:</p>
+            <p className="font-bold col-span-3">{application.membership_type}</p>
+          </div>
+
         </div>
       <div>
       <div className="flex gap-3">
