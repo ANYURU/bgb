@@ -11,7 +11,7 @@ import { useAuth } from '../auth/AuthContext'
 
 
 function Application() {
-    const initialvalues = { firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:'', payment_method:'', issues:'' }
+    const initialvalues = { firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:'', payment_method:'', issues:'', membership_type:'' }
     const { user } = useAuth()
   return (
     <div>
@@ -139,6 +139,18 @@ function Application() {
                       <option key={index} value={method}>{method}</option>
                     ))}
                 </MySelect>  
+                <MySelect 
+                    label="Type of Membership"
+                    name="membership_type"
+                    type="text"
+                    placeholder="Enter your company"
+                    useField={useField}
+                    className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8 h-12`}
+                >
+                    {formData?.membershipTypes.map((method, index) => (
+                      <option key={index} value={method}>{method}</option>
+                    ))}
+                </MySelect> 
               
 
               </div>

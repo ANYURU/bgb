@@ -41,5 +41,11 @@ export const formData = {
         "Airtel Money",
         "Cash",
         "Master Card"
+    ],
+    membershipTypes:[
+        "active member",
+        "officer",
+        "OG",
+        "OB"
     ]
 }

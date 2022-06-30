@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../helpers/supabase/supabase'
+import { useNavigate } from 'react-router-dom'
 
 
 function ApplicationAdmin() {
   const { applicationId } = useParams()
   const [application, setApplication] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     getApplications()
@@ -63,6 +65,10 @@ function ApplicationAdmin() {
           <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
             <p className="col-span-2">Payment method:</p>
             <p className="font-bold col-span-3">{application.payment_method}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Payment method:</p>
+            <p className="font-bold col-span-3">{application.issues}</p>
           </div>
         </div>
       <div>
