@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik, Form, useField } from 'formik'
+import { Formik, Form, useField, Field } from 'formik'
 import { MyTextInput } from '../components/Form/MyTextInput'
 import { MySelect } from '../components/Form/MySelect'
 import { formData } from '../helpers/applicationForm'
@@ -11,7 +11,7 @@ import { useAuth } from '../auth/AuthContext'
 
 
 function Application() {
-    const initialvalues = { firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:'', payment_method:'' }
+    const initialvalues = { firstname:'', surname:'', phone_contact:'', email:'', gender:'', age:'', company:'', diocese:'', payment_method:'', issues:'' }
     const { user } = useAuth()
   return (
     <div>
@@ -48,10 +48,11 @@ function Application() {
           } catch ( error ){
             console.log(error)
           }
-          // console.log(values)
+          console.log(values)
         }}
       >   
           <Form className='w-full'>
+            <ToastContainer />
             <div className='flex flex-col items-center  '>
               <div className='grid tablet:gap-x-12 mobile:grid-cols-1 tablet:gap-y-6 desktop:gap-x-20 tablet:grid-cols-2 desktop:grid-cols-4 mb-6'>
                 <MyTextInput
@@ -138,7 +139,12 @@ function Application() {
                       <option key={index} value={method}>{method}</option>
                     ))}
                 </MySelect>  
+              
 
+              </div>
+              <div className="flex flex-col w-4/5 my-5">
+                <label className="font-semibold w-100" htmlFor="issues">Any health issues that need special consideration for accomodation or meals</label>
+                <Field as='textarea' name="issues" cols="20"rows="10" maxlength="200" className="outline outline-1 p-2 rounded-md w-full dark:bg-dark-bg-700"></Field>
               </div>
             </div>
             <div className='flex my-4 mobile:justify-center tablet:justify-center desktop:justify-start sm:justify-center desktop:ml-24 '>
