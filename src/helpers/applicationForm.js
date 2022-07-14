@@ -33,6 +33,7 @@ export const formData = {
         "Sebei",
         "Soroti",
         "South Ankole",
+        "South Rwenzori",
         "West Buganda",
         "West Lango Diocese"
     ],
@@ -45,7 +46,7 @@ export const formData = {
     membershipTypes:[
         "active member",
         "officer",
-        "OG",
-        "OB"
+        "active officer",
+        "well wisher"
     ]
 }
