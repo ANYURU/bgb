@@ -47,6 +47,10 @@ function ApplicationAdmin() {
             <p className="font-bold col-span-3">{application.surname}</p>
           </div>
           <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
+            <p className="col-span-2">Other name:</p>
+            <p className="font-bold col-span-3">{application?.other_names || "Non or Unspecified"}</p>
+          </div>
+          <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
             <p className="col-span-2">Age:</p>
             <p className="font-bold col-span-3">{application.age}</p>
           </div>

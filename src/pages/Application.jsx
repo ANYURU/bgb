@@ -88,6 +88,14 @@ function Application() {
                   className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8`}
                 />
                 <MyTextInput
+                  label="Other Name"
+                  name="other_names"
+                  type="text"
+                  placeholder="Enter Other name"
+                  useField={useField}
+                  className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8`}
+                />
+                <MyTextInput
                   label="Phone Contact"
                   name="phone_contact"
                   type="tel"
