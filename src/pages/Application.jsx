@@ -66,7 +66,7 @@ function Application() {
           console.log(values);
         }}
       >
-        {({ values }) => (
+        {({ values, errors }) => (
           <Form className="w-full">
             <ToastContainer />
             <div className="flex flex-col items-center  ">
@@ -110,7 +110,7 @@ function Application() {
                   label="Gender"
                   name="gender"
                   type="text"
-                  placeholder="Enter your surname"
+                  placeholder="Enter Gender"
                   useField={useField}
                   className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8`}
                 />
@@ -156,10 +156,10 @@ function Application() {
                   label="Type of Membership"
                   name="membership_type"
                   type="text"
-                  placeholder="Enter your company"
                   useField={useField}
                   className={`mt-1 py-3 focus:outline-none focus:ring-2 focus:ring-inputblue bg-inputblue focus:bg-transparent w-56 pl-8 h-12`}
                 >
+                  <option value="">--Select Type--</option>
                   {formData?.membershipTypes.map((method, index) => (
                     <option key={index} value={method}>
                       {method}
@@ -206,6 +206,10 @@ function Application() {
             <div className="flex my-4 mobile:justify-center tablet:justify-center desktop:justify-start sm:justify-center desktop:ml-24 ">
               <button
                 type="submit"
+                onClick={() => {
+                  console.log("values: ", values)
+                  console.log("Errors: ", errors)
+                }}
                 className="bg-primary inline-flex items-center justify-center text-white text-base font-medium py-2 h-12 w-40 mt-1"
               >
                 Submit

@@ -16,11 +16,11 @@ export const ApplicationFormValidationSchema = Yup.object({
     age: Yup.string().required("Required!"),
     membership_type: Yup.string().required("Required!"),
     church_name: Yup.string().when('membership_type', {
-        is: 'member',
+        is: 'non member',
         then: Yup.string().required("Required!")
     }),
     company_name: Yup.string().when('membership_type', {
-        is: 'non member',
+        is: 'member',
         then: Yup.string().required("Required!")
     })
 })

@@ -55,8 +55,8 @@ function ApplicationAdmin() {
             <p className="font-bold col-span-3">{application.gender}</p>
           </div>
           <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
-            <p className="col-span-2">Company:</p>
-            <p className="font-bold col-span-3">{application.company}</p>
+            <p className="col-span-2">Company Name:</p>
+            <p className="font-bold col-span-3">{application.company_name}</p>
           </div>
           <div className="grid grid-cols-5 gap-2 mb-2 justify-start w-full">
             <p className="col-span-2">Diocese:</p>
