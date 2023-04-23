@@ -13,7 +13,16 @@ export const ApplicationFormValidationSchema = Yup.object({
     surname: Yup.string().required("Required!"),
     phone_contact: Yup.string().required("Required!"),
     gender: Yup.string().required("Required!"),
-    age: Yup.string().required("Required!")
+    age: Yup.string().required("Required!"),
+    membership_type: Yup.string().required("Required!"),
+    church_name: Yup.string().when('membership_type', {
+        is: 'member',
+        then: Yup.string().required("Required!")
+    }),
+    company_name: Yup.string().when('membership_type', {
+        is: 'non member',
+        then: Yup.string().required("Required!")
+    })
 })
 
 export const signUpFormValidationSchema = Yup.object({

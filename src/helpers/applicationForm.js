@@ -44,9 +44,7 @@ export const formData = {
         "Master Card"
     ],
     membershipTypes:[
-        "active member",
-        "officer",
-        "active officer",
-        "well wisher"
+        "member",
+        "non member"
     ]
 }
